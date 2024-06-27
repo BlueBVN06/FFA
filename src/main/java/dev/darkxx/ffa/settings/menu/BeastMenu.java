@@ -44,8 +44,7 @@ public class BeastMenu extends GuiBuilder {
         inventory.setItem(15, Center, p -> {
             Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), () -> {
                 String targetArena = "center";
-                String tpTarget = player;
-                ArenaManager.warp(sender, tpTarget, targetArena);
+                ArenaManager.warp(player, targetArena);
                 player.playSound(player.getLocation(), Sound.UI_LOOM_TAKE_RESULT, 1.0f, 1.0f);
             });
         });
