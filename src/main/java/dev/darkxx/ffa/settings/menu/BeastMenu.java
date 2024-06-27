@@ -38,12 +38,14 @@ public class BeastMenu extends GuiBuilder {
         GuiBuilder inventory = new GuiBuilder(3 * 9, formatColors("Spawn selector"));
 
         ItemStack Center = new ItemBuilderGUI(Material.GRASS_BLOCK)
-                .name(formatColors("&bCenter"))
+                .name(formatColors("&l&bCenter"))
+                .lore(formatColors("&fPlayer: "))
+                .lore(formatColors(" "))
                 .lore(formatColors("&7Click to warp to Center"))
                 .flags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS)
                 .build();
         inventory.setItem(13, Center, p -> {
-            Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), () -> {
+            Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
             String playerName = player.getName();
             String kitCmd = "ffa kits give " + playerName + " " + "beast";
             String arenaCmd = "ffa arenas warp " + playerName + " " + "Center";
