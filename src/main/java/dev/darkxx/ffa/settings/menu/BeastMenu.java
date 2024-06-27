@@ -35,27 +35,23 @@ public class BeastMenu extends GuiBuilder {
     }
 
     public static GuiBuilder createBeastMenu(Player player, Main main) {
-        GuiBuilder inventory = new GuiBuilder(3 * 9, formatColors("Beast"));
+        GuiBuilder inventory = new GuiBuilder(3 * 9, formatColors("Spawn selector"));
 
         ItemStack Center = new ItemBuilderGUI(Material.GRASS_BLOCK)
                 .name(formatColors("&bCenter"))
                 .lore(formatColors("&7Click to warp to Center"))
                 .flags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS)
                 .build();
-        inventory.setItem(15, Center, p -> {
+        inventory.setItem(13, Center, p -> {
             Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), () -> {
-                String targetArena = "center";
-                ArenaManager.warp(player, targetArena);
-                player.playSound(player.getLocation(), Sound.UI_LOOM_TAKE_RESULT, 1.0f, 1.0f);
+            String playerName = player.getName();
+            String kitCmd = "ffa kits give " + playerName + " " + "beast";
+            String arenaCmd = "ffa arenas warp " + playerName + " " + "Center";
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), kitCmd);
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), arenaCmd);
+            player.playSound(player.getLocation(), Sound.UI_LOOM_TAKE_RESULT, 1.0f, 1.0f);
             });
         });
         return inventory;
-    }
-    @EventHandler
-    public void kitGive(KitGiveEvent e) {
-        e.setCancelled(true);
-        Player p = e.getPlayer();
-        String kitName = e.getKitName();
-        main.getServer().dispatchCommand(main.getServer().getConsoleSender(), "xyriskits:kits.give " + p.getName() + "beast" + kitName);
     }
 }
