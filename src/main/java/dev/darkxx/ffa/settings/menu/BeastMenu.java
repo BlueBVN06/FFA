@@ -34,16 +34,16 @@ public class BeastMenu extends GuiBuilder {
     public static GuiBuilder createBeastMenu(Player player, Main main) {
         GuiBuilder inventory = new GuiBuilder(3 * 9, formatColors("Beast"));
 
-        ItemStack Center = new ItemBuilderGUI(Material.GRASS)
+        ItemStack Center = new ItemBuilderGUI(Material.GRASS_BLOCK)
                 .name(formatColors("&bCenter"))
                 .lore(formatColors("&7Click to warp to Center"))
                 .flags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS)
                 .build();
-        inventory.setItem(15, clickCenter, p -> {
+        inventory.setItem(15, Center, p -> {
             Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), () -> {
                // String tpTarget = player;
                 String targetArena = "center";
-                ArenaManager.warp(player, targetArena);
+                //ArenaManager.warp(player, targetArena);
                 player.playSound(player.getLocation(), Sound.UI_LOOM_TAKE_RESULT, 1.0f, 1.0f);
     @EventHandler
     public void kitGive(KitGiveEvent e) {
