@@ -188,7 +188,6 @@ public final class Main extends JavaPlugin {
         getCommand("settings").setExecutor(new SettingsCommand());
         getCommand("beastmenu").setExecutor(new BeastCommand());
     }
-    }
 
     public static Main getInstance() {
         return instance;
