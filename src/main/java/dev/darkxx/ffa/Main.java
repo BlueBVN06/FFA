@@ -185,6 +185,8 @@ public final class Main extends JavaPlugin {
         getCommand("ping").setExecutor(new PingCommand());
         getCommand("nickname").setExecutor(new NickCommand(this));
         getCommand("settings").setExecutor(new SettingsCommand());
+        getCommand("beastmenu").setExecutor(new BeastCommand());
+    }
     }
 
     public static Main getInstance() {
