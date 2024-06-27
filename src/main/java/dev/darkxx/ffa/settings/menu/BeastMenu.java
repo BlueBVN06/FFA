@@ -30,13 +30,7 @@ public class BeastMenu extends GuiBuilder {
         super(27);
         this.main = main;
     }
-@EventHandler
-public void kitGive(KitGiveEvent e) {
-    e.setCancelled(true);
-    Player p = e.getPlayer();
-    String kitName = e.getKitName();
-    main.getServer().dispatchCommand(main.getServer().getConsoleSender(), "xyriskits:kits.give " + p.getName() + "beast" + kitName);
-}
+
     public static GuiBuilder createBeastMenu(Player player, Main main) {
         GuiBuilder inventory = new GuiBuilder(3 * 9, formatColors("Beast"));
 
@@ -52,6 +46,13 @@ public void kitGive(KitGiveEvent e) {
                 ArenaManager.warp(player, targetArena);
                 kitGive();
                 player.playSound(player.getLocation(), Sound.UI_LOOM_TAKE_RESULT, 1.0f, 1.0f);
+                @EventHandler
+public void kitGive(KitGiveEvent e) {
+    e.setCancelled(true);
+    Player p = e.getPlayer();
+    String kitName = e.getKitName();
+    main.getServer().dispatchCommand(main.getServer().getConsoleSender(), "xyriskits:kits.give " + p.getName() + "beast" + kitName);
+}
             });
          });
 
