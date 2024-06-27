@@ -22,3 +22,4 @@ public class SettingsCommand implements CommandExecutor {
 
         return true;
     }
+}
