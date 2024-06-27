@@ -44,17 +44,16 @@ public class BeastMenu extends GuiBuilder {
                // String tpTarget = player;
                 String targetArena = "center";
                 ArenaManager.warp(player, targetArena);
-                kitGive();
                 player.playSound(player.getLocation(), Sound.UI_LOOM_TAKE_RESULT, 1.0f, 1.0f);
-                @EventHandler
-public void kitGive(KitGiveEvent e) {
-    e.setCancelled(true);
-    Player p = e.getPlayer();
-    String kitName = e.getKitName();
-    main.getServer().dispatchCommand(main.getServer().getConsoleSender(), "xyriskits:kits.give " + p.getName() + "beast" + kitName);
-}
-            });
-         });
+    @EventHandler
+    public void kitGive(KitGiveEvent e) {
+        e.setCancelled(true);
+        Player p = e.getPlayer();
+        String kitName = e.getKitName();
+        main.getServer().dispatchCommand(main.getServer().getConsoleSender(), "xyriskits:kits.give " + p.getName() + "beast" + kitName);
+    }
+});
+});
 
         // Private Messages Setting
      /*  ItemStack togglePM = new ItemBuilderGUI(Material.WRITABLE_BOOK)
