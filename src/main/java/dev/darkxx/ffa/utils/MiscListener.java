@@ -295,6 +295,7 @@ public class MiscListener implements Listener {
         Player player = e.getEntity();
         Player attacker = player.getKiller();
         if (attacker != null) {
+            Kits.getLastKit(attacker);
             attacker.getActivePotionEffects().forEach(pe -> player.removePotionEffect(pe.getType()));
             attacker.setHealth(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
             attacker.setFoodLevel(20);
