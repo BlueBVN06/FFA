@@ -37,6 +37,12 @@ public class BeastMenu extends GuiBuilder {
     public static GuiBuilder createBeastMenu(Player player, Main main) {
         GuiBuilder inventory = new GuiBuilder(3 * 9, formatColors("Spawn selector"));
 
+        ItemStack Glass = new ItemBuilderGUI(Material.GRAY_STAINED_GLASS_PANE)
+                .flags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS)
+                .build();
+        for (int i = 0; i < inventory.getSize(); i++) {
+            inventory.setItem(i, Glass);
+        };
         ItemStack Center = new ItemBuilderGUI(Material.GRASS_BLOCK)
                 .name(formatColors("&l&bCenter"))
                 .lore(formatColors("\n&7Click to warp to Center"))
@@ -47,6 +53,20 @@ public class BeastMenu extends GuiBuilder {
             String playerName = player.getName();
             String kitCmd = "ffa kits give " + playerName + " " + "beast";
             String arenaCmd = "ffa arenas warp " + playerName + " " + "Center";
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), kitCmd);
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), arenaCmd);
+            player.playSound(player.getLocation(), Sound.UI_LOOM_TAKE_RESULT, 1.0f, 1.0f);
+            });
+        });
+        ItemStack Coolarena = new ItemBuilderGUI(Material.ENDER_EYE)
+                .name(formatColors("&l&bCool Arena"))
+                .flags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS)
+                .build();
+        inventory.setItem(22, Coolarena, p -> {
+            Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
+            String playerName = player.getName();
+            String kitCmd = "ffa kits give " + playerName + " " + "beast";
+            String arenaCmd = "ffa arenas warp " + playerName + " " + "Coolarena";
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), kitCmd);
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), arenaCmd);
             player.playSound(player.getLocation(), Sound.UI_LOOM_TAKE_RESULT, 1.0f, 1.0f);
