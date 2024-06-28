@@ -48,7 +48,7 @@ public class MaceMenu extends GuiBuilder {
         inventory.setItem(5, Glass);
         inventory.setItem(6, Glass);
         inventory.setItem(7, Glass);
-        inventory.setitem(8, Glass);
+        inventory.setItem(8, Glass);
         inventory.setItem(10, Glass);
         inventory.setItem(12, Glass);
         inventory.setItem(14, Glass);
