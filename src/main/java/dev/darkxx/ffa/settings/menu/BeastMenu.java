@@ -44,6 +44,20 @@ public class BeastMenu extends GuiBuilder {
         inventory.setItem(1, Glass);
         inventory.setItem(2, Glass);
         inventory.setItem(3, Glass);
+        inventory.setItem(4, Glass);
+        inventory.setItem(5, Glass);
+        inventory.setItem(6, Glass);
+        inventory.setItem(7, Glass);
+        inventory.setitem(8, Glass);
+        inventory.setItem(10, Glass);
+        inventory.setItem(12, Glass);
+        inventory.setItem(14, Glass);
+        inventory.setItem(16, Glass);
+        inventory.setItem(18, Glass);
+        inventory.setItem(20, Glass);
+        inventory.setItem(24, Glass);
+        inventory.setItem(26, Glass);
+        
         
         ItemStack Center = new ItemBuilderGUI(Material.GRASS_BLOCK)
                 .name(formatColors("&l&bCenter"))
