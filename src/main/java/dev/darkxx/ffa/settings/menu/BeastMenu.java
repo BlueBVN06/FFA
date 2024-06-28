@@ -81,7 +81,7 @@ public class BeastMenu extends GuiBuilder {
             Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
             String playerName = player.getName();
             String kitCmd = "ffa kits give " + playerName + " " + "beast";
-            String arenaCmd = "ffa arenas warp " + playerName + " " + "Coolarena";
+            String arenaCmd = "ffa coolarenas warp " + playerName + " " + "Coolarena";
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), kitCmd);
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), arenaCmd);
             player.playSound(player.getLocation(), Sound.UI_LOOM_TAKE_RESULT, 1.0f, 1.0f);
