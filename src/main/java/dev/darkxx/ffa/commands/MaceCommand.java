@@ -22,3 +22,4 @@ public class MaceCommand implements CommandExecutor {
 
         return true;
     }
+}
