@@ -42,8 +42,7 @@ public class MaceMenu extends GuiBuilder {
                 .build();
         for (int i = 0; i < inventory.getSize(); i++) {
             inventory.setItem(i, Glass);
-            };
-        });
+        };
         ItemStack Macecenter = new ItemBuilderGUI(Material.GRASS_BLOCK)
                 .name(formatColors("&l&bCenter"))
                 .lore(formatColors("\n&7Click to warp to Mace Center"))
