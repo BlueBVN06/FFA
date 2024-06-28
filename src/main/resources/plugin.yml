@@ -48,6 +48,7 @@ commands:
       - nick
   settings:
   beastmenu:
+  macemenu:
   coolarena:
     permission: ffa.coolarena.use
     aliases:
