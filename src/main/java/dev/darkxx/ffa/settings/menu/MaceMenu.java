@@ -37,8 +37,14 @@ public class MaceMenu extends GuiBuilder {
     public static GuiBuilder createMaceMenu(Player player, Main main) {
         GuiBuilder inventory = new GuiBuilder(3 * 9, formatColors("Spawn selector"));
 
+        ItemStack Glass = new ItemBuilderGUI(Material.GRAY_STAINED_GLASS_PANE)
+                .flags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS)
+                .build();
+        inventory.setItem(0, Glass, p -> {
+            });
+        });
         ItemStack Macecenter = new ItemBuilderGUI(Material.GRASS_BLOCK)
-                .name(formatColors("&l&eMace Center"))
+                .name(formatColors("&l&bCenter"))
                 .lore(formatColors("\n&7Click to warp to Mace Center"))
                 .flags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS)
                 .build();
@@ -47,6 +53,20 @@ public class MaceMenu extends GuiBuilder {
             String playerName = player.getName();
             String kitCmd = "ffa kits give " + playerName + " " + "mace";
             String arenaCmd = "ffa arenas warp " + playerName + " " + "Macecenter";
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), kitCmd);
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), arenaCmd);
+            player.playSound(player.getLocation(), Sound.UI_LOOM_TAKE_RESULT, 1.0f, 1.0f);
+            });
+        });
+        ItemStack Coolarena = new ItemBuilderGUI(Material.ENDER_EYE)
+                .name(formatColors("&l&bCool Arena"))
+                .flags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS)
+                .build();
+        inventory.setItem(22, Coolarena, p -> {
+            Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
+            String playerName = player.getName();
+            String kitCmd = "ffa kits give " + playerName + " " + "mace";
+            String arenaCmd = "ffa arenas warp " + playerName + " " + "Coolarena";
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), kitCmd);
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), arenaCmd);
             player.playSound(player.getLocation(), Sound.UI_LOOM_TAKE_RESULT, 1.0f, 1.0f);
