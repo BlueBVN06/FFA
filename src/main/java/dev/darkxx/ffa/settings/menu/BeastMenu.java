@@ -33,7 +33,21 @@ public class BeastMenu extends GuiBuilder {
         super(27);
         this.main = main;
     }
+    public class GuiBuilder {
+    private final Inventory inventory;
 
+    public GuiBuilder(int size, String title) {
+        this.inventory = Bukkit.createInventory(null, size, title);
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public int getSize() {
+        return inventory.getSize();
+    }
+    }
     public static GuiBuilder createBeastMenu(Player player, Main main) {
         GuiBuilder inventory = new GuiBuilder(3 * 9, formatColors("Spawn selector"));
 
