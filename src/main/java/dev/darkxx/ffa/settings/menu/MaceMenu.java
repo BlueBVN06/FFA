@@ -33,29 +33,28 @@ public class MaceMenu extends GuiBuilder {
         super(27);
         this.main = main;
     }
-    public class GuiBuilder {
-    private final Inventory inventory;
-
-    public GuiBuilder(int size, String title) {
-        this.inventory = Bukkit.createInventory(null, size, title);
-    }
-
-    public Inventory getInventory() {
-        return inventory;
-    }
-
-    public int getSize() {
-        return inventory.getSize();
-    }
-    }
+    
     public static GuiBuilder createMaceMenu(Player player, Main main) {
         GuiBuilder inventory = new GuiBuilder(3 * 9, formatColors("Spawn selector"));
 
         ItemStack Glass = new ItemBuilderGUI(Material.GRAY_STAINED_GLASS_PANE)
                 .flags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS)
                 .build();
-        for (int i = 0; i < inventory.getSize(); i++) {
-            inventory.setItem(i, Glass);
+        inventory.setItem(0, Glass);
+        inventory.setItem(1, Glass);
+        inventory.setItem(2, Glass);
+        inventory.setItem(3, Glass);
+        inventory.setItem(4, Glass);
+        inventory.setItem(5, Glass);
+        inventory.setItem(6, Glass);
+        inventory.setItem(7, Glass);
+        inventory.setitem(8, Glass);
+        inventory.setItem(10, Glass);
+        inventory.setItem(12, Glass);
+        inventory.setItem(14, Glass);
+        inventory.setItem(16, Glass);
+        inventory.setItem(18, Glass);
+        inventory.setItem(20, Glass);
         };
         ItemStack Macecenter = new ItemBuilderGUI(Material.GRASS_BLOCK)
                 .name(formatColors("&l&bCenter"))
