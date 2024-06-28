@@ -2,6 +2,7 @@ package dev.darkxx.ffa;
 
 import dev.darkxx.ffa.bstats.Metrics;
 import dev.darkxx.ffa.combat.CombatTagger;
+import dev.darkxx.ffa.commands.MaceCommand;
 import dev.darkxx.ffa.commands.BeastCommand;
 import dev.darkxx.ffa.commands.SettingsCommand;
 import dev.darkxx.ffa.commands.MessageCommand;
@@ -187,6 +188,7 @@ public final class Main extends JavaPlugin {
         getCommand("nickname").setExecutor(new NickCommand(this));
         getCommand("settings").setExecutor(new SettingsCommand());
         getCommand("beastmenu").setExecutor(new BeastCommand());
+        getCommand("macemenu").setExecutor(new MaceCommand());
     }
 
     public static Main getInstance() {
