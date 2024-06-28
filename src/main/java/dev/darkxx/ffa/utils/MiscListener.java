@@ -295,6 +295,11 @@ public class MiscListener implements Listener {
         Player player = e.getEntity();
         Player attacker = player.getKiller();
         if (attacker != null) {
+            attacker.getActivePotionEffects().forEach(pe -> player.removePotionEffect(pe.getType()));
+            attacker.setHealth(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
+            attacker.setFoodLevel(20);
+            attacker.setSaturation(0);
+            attacker.setFireTicks(0);
             if (SettingsManager.hasEnabledSetting(attacker, "autoGG")) {
                 Bukkit.getScheduler().runTaskLater(main, () -> {
                     attacker.chat("gg");
