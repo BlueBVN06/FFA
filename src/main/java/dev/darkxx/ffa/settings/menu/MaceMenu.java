@@ -40,8 +40,9 @@ public class MaceMenu extends GuiBuilder {
         ItemStack Glass = new ItemBuilderGUI(Material.GRAY_STAINED_GLASS_PANE)
                 .flags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS)
                 .build();
-        inventory.setItem(0, Glass, p -> {
-            });
+        for (int i = 0; i < inventory.getSize(); i++) {
+            inventory.setItem(i, Glass);
+            };
         });
         ItemStack Macecenter = new ItemBuilderGUI(Material.GRASS_BLOCK)
                 .name(formatColors("&l&bCenter"))
