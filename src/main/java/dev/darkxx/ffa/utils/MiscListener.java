@@ -305,13 +305,12 @@ public class MiscListener implements Listener {
             e.getDrops().clear();
         }
     }
+    
     @EventHandler
     public void cancelFoodLoose(FoodLevelChangeEvent event) {
-        FFAPlayer ffaPlayer = PlayerList.getInstance().getPlayer((Player) event.getEntity());
-        if (ffaPlayer.isInKitSelection()) {
-            event.setCancelled(true);
-        }
+        event.setCancelled(true);
     }
+    
     public static void heal(Player player) {
         player.getInventory().clear();
         player.getActivePotionEffects().forEach(pe -> player.removePotionEffect(pe.getType()));
