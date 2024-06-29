@@ -11,7 +11,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.World;
-import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Arrow;
@@ -314,19 +313,6 @@ public class MiscListener implements Listener {
         player.setFoodLevel(20);
         player.setSaturation(0);
         player.setFireTicks(0);
-    }
-    
-    @EventHandler
-    public void startFoodLevelScheduler() {
-        BukkitRunnable task = new BukkitRunnable() {
-            @Override
-            public void run() {
-                for (Player player : Bukkit.getOnlinePlayers()) {
-                    player.setFoodLevel(20);
-                }
-            }
-        };
-        task.runTaskTimer(plugin, 0, 20);
     }
 
     @EventHandler
