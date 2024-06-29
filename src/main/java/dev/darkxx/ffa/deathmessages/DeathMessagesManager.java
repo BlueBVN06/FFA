@@ -42,12 +42,24 @@ public class DeathMessagesManager implements Listener {
     public void onPlayerDeath(PlayerDeathEvent event) {
         Player victim = event.getEntity();
         Player attacker = event.getEntity().getKiller();
+        String kit = getLastKit(attacker);
         String attackerName = (attacker != null) ? attacker.getName() : "Unknown";
         String victimName = (victim != null) ? victim.getName() : "Unknown";
         double attackerHealth = (attacker != null) ? attacker.getHealth() : 0.00;
         double victimHealth = (victim != null) ? victim.getHealth() : 0.00;
         Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), () -> {
             Bukkit.broadcastMessage(formatColors(Placeholders(attackerName, victimName, attackerHealth, victimHealth)));
+        if (attacker != null) {
+            if (!kit.equals("none")) {
+            String kitCmd = "ffa kits give " + attackerName + " " + kit;
+            Bukkit.dispatchCommand(kitCmd);
+            attacker.getActivePotionEffects().forEach(pe -> player.removePotionEffect(pe.getType()));
+            attacker.setHealth(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
+            attacker.setFoodLevel(20);
+            attacker.setSaturation(0);
+            attacker.setFireTicks(0);
+            }
+        }
         });
     }
 
