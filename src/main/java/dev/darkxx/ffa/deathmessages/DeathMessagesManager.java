@@ -50,8 +50,9 @@ public class DeathMessagesManager implements Listener {
         double attackerHealth = (attacker != null) ? attacker.getHealth() : 0.00;
         double victimHealth = (victim != null) ? victim.getHealth() : 0.00;
         Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), () -> {
-            Bukkit.broadcastMessage(formatColors(Placeholders(attackerName, victimName, attackerHealth, victimHealth)));
-        if (attacker != null) {
+        Bukkit.broadcastMessage(formatColors(Placeholders(attackerName, victimName, attackerHealth, victimHealth)));
+        Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
+            if (attacker != null) {
             if (!kit.equals("none")) {
             String kitCmd = "ffa kits give " + attackerName + " " + kit;
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), kitCmd);
@@ -62,6 +63,7 @@ public class DeathMessagesManager implements Listener {
             attacker.setFireTicks(0);
             }
         }
+        });
         });
     }
 
