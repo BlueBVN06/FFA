@@ -66,8 +66,6 @@ public final class Main extends JavaPlugin {
         prefix = config.getString("prefix", "&b&lFFA &7|&r");
         DatabaseManager.connect();
         kitsFolder = KitManager.createKitsFolder();
-        getServer().getPluginManager().registerEvents(new FoodLevelSetter(), this);
-        new FoodLevelScheduler().startFoodLevelScheduler(this);
         Register();
         Commands();
     }
