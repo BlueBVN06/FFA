@@ -102,7 +102,6 @@ public class BeastMenu extends GuiBuilder {
             }
             return count;
         } else {
-            getLogger().warning("World '" + worldName + "' not found.");
             return 0;
         }
     }
