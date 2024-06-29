@@ -50,7 +50,8 @@ public class DeathMessagesManager implements Listener {
         double attackerHealth = (attacker != null) ? attacker.getHealth() : 0.00;
         double victimHealth = (victim != null) ? victim.getHealth() : 0.00;
         Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), () -> {
-        Bukkit.broadcastMessage(formatColors(Placeholders(attackerName, victimName, attackerHealth, victimHealth)));
+            Bukkit.broadcastMessage(formatColors(Placeholders(attackerName, victimName, attackerHealth, victimHealth)));
+        });
         Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
             if (attacker != null) {
             if (!kit.equals("none")) {
@@ -62,9 +63,7 @@ public class DeathMessagesManager implements Listener {
             attacker.setSaturation(0);
             attacker.setFireTicks(0);
             }
-        }
-        });
-        });
+        }});
     }
 
     private String Placeholders(String attackerName, String victimName, double attackerHealth, double victimHealth) {
