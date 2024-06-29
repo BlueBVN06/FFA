@@ -35,8 +35,8 @@ public class BeastMenu extends GuiBuilder {
     }
 
     public static GuiBuilder createBeastMenu(Player player, Main main) {
-    String worldName = "Center";
-    int playerCount = getPlayerCountInWorld(worldName);
+        String worldName = "Center";
+        int playerCount = getPlayerCountInWorld(worldName);
   
         GuiBuilder inventory = new GuiBuilder(3 * 9, formatColors("Spawn selector"));
 
