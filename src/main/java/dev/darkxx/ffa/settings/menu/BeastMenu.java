@@ -35,7 +35,6 @@ public class BeastMenu extends GuiBuilder {
     }
     String worldName = "Center";
     int playerCount = getPlayerCountInWorld(worldName);
-    getLogger().info("Number of players in world '" + worldName + "': " + playerCount);
     
     public int getPlayerCountInWorld(String worldName) {
         World world = Bukkit.getWorld(worldName);
@@ -76,14 +75,14 @@ public class BeastMenu extends GuiBuilder {
         
         ItemStack Center = new ItemBuilderGUI(Material.GRASS_BLOCK)
                 .name(formatColors("&l&bCenter"))
-                .lore(formatColors("&7Click to warp to Center"))
+                .lore(formatColors("&7Players:&l&b " + playerCount), formatColors("  "), formatColors("&7Click to warp to Center"));
                 .flags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS)
                 .build();
         inventory.setItem(13, Center, p -> {
             Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
             String playerName = player.getName();
             String kitCmd = "ffa kits give " + playerName + " " + "beast";
-            String arenaCmd = "ffa arenas warp " + playerName + " " + "Center";
+            String arenaCmd = "ffa arenas warp " + playerName + " " + worldName;
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), kitCmd);
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), arenaCmd);
             player.playSound(player.getLocation(), Sound.UI_LOOM_TAKE_RESULT, 1.0f, 1.0f);
