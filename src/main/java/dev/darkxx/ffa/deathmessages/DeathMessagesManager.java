@@ -52,7 +52,7 @@ public class DeathMessagesManager implements Listener {
         if (attacker != null) {
             if (!kit.equals("none")) {
             String kitCmd = "ffa kits give " + attackerName + " " + kit;
-            Bukkit.dispatchCommand(kitCmd);
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), kitCmd);
             attacker.getActivePotionEffects().forEach(pe -> attacker.removePotionEffect(pe.getType()));
             attacker.setHealth(attacker.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
             attacker.setFoodLevel(20);
