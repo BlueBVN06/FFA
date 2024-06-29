@@ -33,23 +33,11 @@ public class BeastMenu extends GuiBuilder {
         super(27);
         this.main = main;
     }
+
+    public static GuiBuilder createBeastMenu(Player player, Main main) {
     String worldName = "Center";
     int playerCount = getPlayerCountInWorld(worldName);
-    
-    public int getPlayerCountInWorld(String worldName) {
-        World world = Bukkit.getWorld(worldName);
-        if (world != null) {
-            int count = 0;
-            for (Player player : world.getPlayers()) {
-                count++;
-            }
-            return count;
-        } else {
-            getLogger().warning("World '" + worldName + "' not found.");
-            return 0;
-        }
-    }
-    public static GuiBuilder createBeastMenu(Player player, Main main) {
+  
         GuiBuilder inventory = new GuiBuilder(3 * 9, formatColors("Spawn selector"));
 
         ItemStack Glass = new ItemBuilderGUI(Material.GRAY_STAINED_GLASS_PANE)
@@ -103,5 +91,18 @@ public class BeastMenu extends GuiBuilder {
             });
         });
         return inventory;
+    }
+    public int getPlayerCountInWorld(String worldName) {
+        World world = Bukkit.getWorld(worldName);
+        if (world != null) {
+            int count = 0;
+            for (Player player : world.getPlayers()) {
+                count++;
+            }
+            return count;
+        } else {
+            getLogger().warning("World '" + worldName + "' not found.");
+            return 0;
+        }
     }
 }
