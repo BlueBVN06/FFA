@@ -33,7 +33,23 @@ public class BeastMenu extends GuiBuilder {
         super(27);
         this.main = main;
     }
+    String worldName = "Center";
+    int playerCount = getPlayerCountInWorld(worldName);
+    getLogger().info("Number of players in world '" + worldName + "': " + playerCount);
     
+    public int getPlayerCountInWorld(String worldName) {
+        World world = Bukkit.getWorld(worldName);
+        if (world != null) {
+            int count = 0;
+            for (Player player : world.getPlayers()) {
+                count++;
+            }
+            return count;
+        } else {
+            getLogger().warning("World '" + worldName + "' not found.");
+            return 0;
+        }
+    }
     public static GuiBuilder createBeastMenu(Player player, Main main) {
         GuiBuilder inventory = new GuiBuilder(3 * 9, formatColors("Spawn selector"));
 
