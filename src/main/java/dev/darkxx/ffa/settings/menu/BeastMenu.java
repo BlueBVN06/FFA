@@ -93,7 +93,7 @@ public class BeastMenu extends GuiBuilder {
         });
         return inventory;
     }
-    public int getPlayerCountInWorld(String worldName) {
+    public static int getPlayerCountInWorld(String worldName) {
         World world = Bukkit.getWorld(worldName);
         if (world != null) {
             int count = 0;
