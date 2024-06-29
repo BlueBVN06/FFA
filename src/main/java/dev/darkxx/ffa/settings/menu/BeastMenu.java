@@ -75,7 +75,7 @@ public class BeastMenu extends GuiBuilder {
         
         ItemStack Center = new ItemBuilderGUI(Material.GRASS_BLOCK)
                 .name(formatColors("&l&bCenter"))
-                .lore(formatColors("&7Players:&l&b " + playerCount), formatColors("  "), formatColors("&7Click to warp to Center"));
+                .lore(formatColors("&7Players:&l&b " + playerCount), formatColors("  "), formatColors("&7Click to warp to Center"))
                 .flags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS)
                 .build();
         inventory.setItem(13, Center, p -> {
