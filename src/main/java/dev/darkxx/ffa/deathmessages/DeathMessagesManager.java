@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static dev.darkxx.ffa.kits.Kits.getLastKit;
 import static dev.darkxx.ffa.Main.formatColors;
 
 public class DeathMessagesManager implements Listener {
