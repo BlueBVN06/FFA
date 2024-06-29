@@ -294,18 +294,7 @@ public class MiscListener implements Listener {
     public void onPlayerDeath(PlayerDeathEvent e) {
         Player player = e.getEntity();
         Player attacker = player.getKiller();
-        String kit = getLastKit(attacker);
-        String playerName = attacker.getName();
         if (attacker != null) {
-            if (!kit.equals("none")) {
-            String kitCmd = "ffa kits give " + playerName + " " + kit;
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), kitCmd);
-            attacker.getActivePotionEffects().forEach(pe -> player.removePotionEffect(pe.getType()));
-            attacker.setHealth(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
-            attacker.setFoodLevel(20);
-            attacker.setSaturation(0);
-            attacker.setFireTicks(0);
-            }
             if (SettingsManager.hasEnabledSetting(attacker, "autoGG")) {
                 Bukkit.getScheduler().runTaskLater(main, () -> {
                     attacker.chat("gg");
