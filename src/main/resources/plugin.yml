@@ -47,6 +47,8 @@ commands:
     aliases:
       - nick
   settings:
+  nethpotmenu:
+  speedmenu:
   beastmenu:
   macemenu:
   coolarena:
