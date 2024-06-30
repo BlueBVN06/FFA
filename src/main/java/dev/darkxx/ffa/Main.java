@@ -2,6 +2,7 @@ package dev.darkxx.ffa;
 
 import dev.darkxx.ffa.bstats.Metrics;
 import dev.darkxx.ffa.combat.CombatTagger;
+import dev.darkxx.ffa.commands.NethpotCommand;
 import dev.darkxx.ffa.commands.SpeedCommand;
 import dev.darkxx.ffa.commands.MaceCommand;
 import dev.darkxx.ffa.commands.BeastCommand;
