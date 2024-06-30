@@ -28,16 +28,16 @@ import java.util.Arrays;
 
 import static dev.darkxx.ffa.Main.formatColors;
 
-public class BeastMenu extends GuiBuilder {
+public class SpeedMenu extends GuiBuilder {
 
     private static Main main;
 
-    public BeastMenu(Main main) {
+    public SpeedMenu(Main main) {
         super(27);
         this.main = main;
     }
 
-    public static GuiBuilder createBeastMenu(Player player, Main main) {
+    public static GuiBuilder createSpeedMenu(Player player, Main main) {
         String worldName = "Center";
         int playerCount = getPlayerCountInWorld(worldName);
   
