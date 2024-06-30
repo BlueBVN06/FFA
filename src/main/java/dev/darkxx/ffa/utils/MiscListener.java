@@ -203,17 +203,17 @@ public class MiscListener implements Listener {
                 updateHealthBar(player);
             }
         });
-       /* String joinMsg = Main.getInstance().getConfig().getString("join-message", "&7%player_name% Joined.");
+        String joinMsg = Main.getInstance().getConfig().getString("join-message", "&7%player_name% Joined.");
         e.setJoinMessage(formatColors(PlaceholderAPI.setPlaceholders(player, joinMsg)));
-        StatsManager.load(player.getUniqueId()); */
+        StatsManager.load(player.getUniqueId()); 
     }
 
-  /*  @EventHandler
+    @EventHandler
     public void onPlayerQuit(PlayerQuitEvent e) {
         Player player = e.getPlayer();
         String quitMsg = Main.getInstance().getConfig().getString("quit-message", "&7%player_name% Left.");
         e.setQuitMessage(formatColors(PlaceholderAPI.setPlaceholders(player, quitMsg)));
-    } */
+    }
 
     @EventHandler
     public void onPlayerChangeWorld(PlayerChangedWorldEvent e) {
